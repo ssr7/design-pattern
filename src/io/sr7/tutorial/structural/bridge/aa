@@ -1,0 +1,118 @@
+package io.sr7.tutorial.structural.bridge;
+
+public interface  Charger {
+    void charging();
+    ChargerWire getChargerWire(); //This is a bridge between interface class and implementor
+}
+package io.sr7.tutorial.structural.bridge;
+
+/**
+ * Implementor of bridge
+ */
+public interface ChargerWire {
+    void connectCharger();
+}
+package io.sr7.tutorial.structural.bridge;
+
+public class HomeCharger implements Charger {
+    private ChargerWire chargerWire;
+
+    public HomeCharger(ChargerWire chargerWire) {
+        this.chargerWire = chargerWire;
+    }
+
+    @Override
+    public void charging() {
+        getChargerWire().connectCharger();
+        System.out.println("charging ...");
+    }
+
+    @Override
+    public ChargerWire getChargerWire() {
+        return chargerWire;
+    }
+}
+package io.sr7.tutorial.structural.bridge;
+
+/**
+ * Using in car
+ */
+public class LighterCharger implements Charger {
+    private ChargerWire chargerWire;
+
+    public LighterCharger(ChargerWire chargerWire) {
+        this.chargerWire = chargerWire;
+    }
+
+    @Override
+    public void charging() {
+        System.out.println("charging ...");
+        chargerWire.connectCharger();
+    }
+
+    @Override
+    public ChargerWire getChargerWire() {
+        return chargerWire;
+    }
+}
+package io.sr7.tutorial.structural.bridge;
+
+/**
+ * Good reference: https://stacktraceguru.com/bridge-design-pattern
+ */
+public class TestBridge {
+    public static void main(String[] args) {
+        Charger homeCharger=new LighterCharger(new TypeBWire());
+        homeCharger.charging();
+
+        Charger carCharger=new LighterCharger(new TypeCWire());
+        carCharger.charging();
+    }
+}
+package io.sr7.tutorial.structural.bridge;
+
+/**
+ * Tunable charger with key for tune voltage
+ */
+public class TunableCharger implements Charger {
+    private ChargerWire chargerWire;
+
+    public TunableCharger(ChargerWire chargerWire) {
+        this.chargerWire = chargerWire;
+    }
+
+    @Override
+    public void charging() {
+        System.out.println("charging ...");
+        chargerWire.connectCharger();
+    }
+
+    @Override
+    public ChargerWire getChargerWire() {
+        return chargerWire;
+    }
+}
+package io.sr7.tutorial.structural.bridge;
+
+public class TypeAWire implements ChargerWire {
+    @Override
+    public void connectCharger() {
+        System.out.println("Connect Type A Charger....");
+    }
+}
+package io.sr7.tutorial.structural.bridge;
+
+public class TypeBWire implements ChargerWire {
+    @Override
+    public void connectCharger() {
+        System.out.println("Connect Type B Charger ....");
+    }
+}
+package io.sr7.tutorial.structural.bridge;
+
+public class TypeCWire implements ChargerWire {
+    @Override
+    public void connectCharger() {
+        System.out.println("Connect Type C Charger ....");
+    }
+}

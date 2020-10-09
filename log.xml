@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-09-12T19:28:27</date>
+  <millis>1599922707128</millis>
+  <sequence>0</sequence>
+  <logger>Log</logger>
+  <level>FINE</level>
+  <class>io.sr7.tutorial.behavioral.chainofresponsibility.TestChainResponsibility</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello FINEST</message>
+</record>
+<record>
+  <date>2020-09-12T19:28:27</date>
+  <millis>1599922707176</millis>
+  <sequence>1</sequence>
+  <logger>Log</logger>
+  <level>FINER</level>
+  <class>io.sr7.tutorial.behavioral.chainofresponsibility.TestChainResponsibility</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello finer</message>
+</record>
+<record>
+  <date>2020-09-12T19:28:27</date>
+  <millis>1599922707176</millis>
+  <sequence>2</sequence>
+  <logger>Log</logger>
+  <level>INFO</level>
+  <class>io.sr7.tutorial.behavioral.chainofresponsibility.TestChainResponsibility</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello INFO</message>
+</record>
+<record>
+  <date>2020-09-12T19:28:27</date>
+  <millis>1599922707192</millis>
+  <sequence>3</sequence>
+  <logger>Log</logger>
+  <level>WARNING</level>
+  <class>io.sr7.tutorial.behavioral.chainofresponsibility.TestChainResponsibility</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Hello Warning</message>
+</record>
+</log>
