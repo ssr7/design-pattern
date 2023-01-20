@@ -1,8 +1,7 @@
 package io.sr7.tutorial.behavioral.chainofresponsibility;
 
 public class SmsMessageHandler extends MessageHandler {
-    public SmsMessageHandler(MessageHandler messageHandler) {
-        super(messageHandler);
+    public SmsMessageHandler() {
     }
 
     @Override
@@ -12,6 +11,14 @@ public class SmsMessageHandler extends MessageHandler {
         }
         if (getNextHandler()!=null){
             getNextHandler().handle(message);
+        }
+    }
+
+    @Override
+    public void execute() {
+            System.out.println("Send Sms to ");
+        if (getNextHandler()!=null){
+            getNextHandler().execute();
         }
     }
 }

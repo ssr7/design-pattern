@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ClassRoomStorage implements  Storage<ClassRoomEntity,Integer> {
+public class ClassRoomRepository implements Repository<ClassRoomEntity,Integer> {
     //simulate storage instead of table in database
     static  HashMap<Integer,ClassRoomEntity> entityStorage = new HashMap<>();
     Map<Integer,ClassRoomEntity> cacheStorage =new ConcurrentHashMap<>();

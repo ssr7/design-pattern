@@ -17,14 +17,18 @@ public class TestChainResponsibility {
         logger.finer("Hello finer");
         logger.info("Hello INFO");
         logger.warning("Hello Warning");*/
+        MessageHandler messageHandler = new SmsMessageHandler()
+                .setNextHandler(new FaxMessageHandler()
+                        .setNextHandler(new EmailMessageHandler()));
+        messageHandler.execute();
 
-       Message message=Message.getMessageBuilder().setMsg("Hello this is a test message")
+       /* Message message=Message.getMessageBuilder().setMsg("Hello this is a test message")
                .addDestination(Message.Destination.FAX,"02122222222")
                .addDestination(Message.Destination.SMS,"09111111111")
                .addDestination(Message.Destination.EMAIL,"test@test.com")
                .build();
         message.getDestinationMap().keySet().forEach(e-> System.out.println(e.toString()));
-       MessageService.send(message);
+       MessageService.send(message);*/
     }
 
 }

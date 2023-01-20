@@ -4,7 +4,7 @@ public class MainGeneric {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         WrapperGeneric<String> wrapperGeneric=new WrapperGeneric<>("Hello world");
-        wrapperGeneric.getValue();
+        String value = wrapperGeneric.getValue();
 
         WrapperGeneric<Integer> wrapperGeneric1=new WrapperGeneric<>(10);
         Class<? extends WrapperGeneric> aClass = wrapperGeneric.getClass();
@@ -18,7 +18,7 @@ public class MainGeneric {
 //        wrapperGeneric1=wrapperGeneric2;
 
         WrapperGeneric wrapperGeneric3=new WrapperGeneric("Hellp");
-        wrapperGeneric3.getValue(); //Return Object and need to cast- Old fashion
+        Object value1 = wrapperGeneric3.getValue();//Return Object and need to cast- Old fashion
 
         MainGeneric  mainGeneric=new MainGeneric();
         mainGeneric.sayHello(new WrapperGeneric<>("Alice"),new WrapperGeneric<>(new Integer(10)));

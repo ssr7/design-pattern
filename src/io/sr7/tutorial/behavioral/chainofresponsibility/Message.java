@@ -1,6 +1,7 @@
 package io.sr7.tutorial.behavioral.chainofresponsibility;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Message {
@@ -32,7 +33,7 @@ public class Message {
     }
     public static class MessageBuilder{
         private String msg;
-        private Map<Destination,String> destinationMap= new EnumMap<>(Destination.class);
+        private Map<Destination, String> destinationMap = new HashMap<>();
 
 
         public String getMsg() {

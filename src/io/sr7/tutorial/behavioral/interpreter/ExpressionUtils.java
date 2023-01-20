@@ -3,19 +3,16 @@ package io.sr7.tutorial.behavioral.interpreter;
 public class ExpressionUtils {
  
     public static boolean isOperator(String s) {
-        if (s.equals("+") || s.equals("-") || s.equals("*"))
-            return true;
-        else
-            return false;
+        return s.equals("+") || s.equals("-") || s.equals("*");
     }
      
     public static Expression getOperator(String s, Expression left, Expression right) {
         switch (s) {
-        case "+":
+            case "+":
             return new Add(left, right);
-        case "-":
+            case "-":
             return new Substract(left, right);
-        case "*":
+            case "*":
             return new Product(left, right);
         }
         return null;

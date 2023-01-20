@@ -24,17 +24,17 @@ public class TestFlyweight {
         System.out.println("a3 hash = " + System.identityHashCode(a3));
         System.out.println("a4 hash = " + System.identityHashCode(a4));
 
-        Storage<DepartmentEntity,Integer> departmentStorage =  PersistenceFactory.getPersistenceFactory(PersistenceFactory.StorageType.Department);
-        departmentStorage.init();
-        DepartmentEntity departmentEntity = departmentStorage.get(1);
-        DepartmentEntity departmentEntity2 = departmentStorage.get(1);
+        Repository<DepartmentEntity,Integer> departmentRepository =  PersistenceFactory.getPersistenceFactory(PersistenceFactory.StorageType.Department);
+        departmentRepository.init();
+        DepartmentEntity departmentEntity = departmentRepository.get(1);
+        DepartmentEntity departmentEntity2 = departmentRepository.get(1);
         System.out.println(System.identityHashCode(departmentEntity));
         System.out.println(System.identityHashCode(departmentEntity2));
 
-        Storage<ClassRoomEntity,Integer> classRoomStorage=  PersistenceFactory.getPersistenceFactory(PersistenceFactory.StorageType.ClassRoom);
-        classRoomStorage.init();
-        ClassRoomEntity classRoomEntity = classRoomStorage.get(1);
-        ClassRoomEntity classRoomEntity2 = classRoomStorage.get(1);
+        Repository<ClassRoomEntity,Integer> classRoomRepository =  PersistenceFactory.getPersistenceFactory(PersistenceFactory.StorageType.ClassRoom);
+        classRoomRepository.init();
+        ClassRoomEntity classRoomEntity = classRoomRepository.get(1);
+        ClassRoomEntity classRoomEntity2 = classRoomRepository.get(1);
         System.out.println(System.identityHashCode(classRoomEntity));
         System.out.println(System.identityHashCode(classRoomEntity2));
 

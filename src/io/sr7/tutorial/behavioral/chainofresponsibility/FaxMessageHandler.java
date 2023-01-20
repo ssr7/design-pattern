@@ -1,8 +1,7 @@
 package io.sr7.tutorial.behavioral.chainofresponsibility;
 
 public class FaxMessageHandler extends MessageHandler {
-    public FaxMessageHandler(MessageHandler messageHandler) {
-        super(messageHandler);
+    public FaxMessageHandler() {
     }
 
     @Override
@@ -12,6 +11,15 @@ public class FaxMessageHandler extends MessageHandler {
         }
         if (getNextHandler()!=null){
             getNextHandler().handle(message);
+        }
+    }
+
+    @Override
+    public void execute() {
+        System.out.println("fax worked ...");
+
+        if (getNextHandler() !=null){
+            getNextHandler().execute();
         }
     }
 }

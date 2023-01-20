@@ -1,8 +1,8 @@
 package io.sr7.tutorial.behavioral.chainofresponsibility;
 
 public class EmailMessageHandler extends MessageHandler {
-    public EmailMessageHandler(MessageHandler messageHandler) {
-        super(messageHandler);
+    public EmailMessageHandler() {
+        ;
     }
 
     @Override
@@ -12,6 +12,15 @@ public class EmailMessageHandler extends MessageHandler {
         }
         if (getNextHandler()!=null){
             getNextHandler().handle(message);
+        }
+    }
+
+    @Override
+    public void execute() {
+        System.out.println("Email worked ...");
+
+        if (getNextHandler() !=null){
+            getNextHandler().execute();
         }
     }
 }

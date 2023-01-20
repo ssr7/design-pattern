@@ -2,19 +2,19 @@ package io.sr7.tutorial.structural.flyweight;
 
 public class PersistenceFactory  {
 
-    public static Storage getPersistenceFactory(StorageType storageType){
-        Storage storage;
+    public static Repository getPersistenceFactory(StorageType storageType){
+        Repository repository;
         switch (storageType){
             case Department:
-                storage=new DepartmentStorage();
+                repository =new DepartmentRepository();
                 break;
             case ClassRoom:
-                storage=new ClassRoomStorage();
+                repository =new ClassRoomRepository();
                 break;
             default:
                 throw  new IllegalArgumentException("bad argument pass");
         }
-        return storage;
+        return repository;
     }
 
     public enum StorageType{

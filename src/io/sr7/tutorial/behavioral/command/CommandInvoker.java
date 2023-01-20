@@ -2,7 +2,7 @@ package io.sr7.tutorial.behavioral.command;
 
 public class CommandInvoker {
     //command store callback method
-    private Command command;
+    private final Command command;
 
     public CommandInvoker(Command command) {
         this.command = command;
